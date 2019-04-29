@@ -43,22 +43,23 @@
 
 
 	    <div class="container">
-			<% if(noticia != undefined){ %>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="noticia_wrapper">
-							<span class="noticia_autor"><%= noticia[0].autor %></span>
-							<h5 class="noticia_titulo"><%= noticia[0].titulo %></h5>
-							<span class="noticia_data"><%= noticia[0].data_criacao %></span>
-							<br />
-							<p class="noticia_resumo">
-								<%= noticia[0].resumo %>
-							</p>
+			<% if(noticias.length >0){ %>
+				<% for(var i = 0; i < noticias.length; i++){%>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="noticia_wrapper">
+								<span class="noticia_autor"><%=noticias[i].autor%></span>
+								<a href="noticia?id=<%=noticias[i].id%>" class="noticia_titulo"><%=noticias[i].titulo%></a>
+								<span class="noticia_data"><%=noticias[i].data_noticia%></span>
 
-							<p><%= noticia[0].noticia %></p>
+								<br />
+								<p class="noticia_resumo">
+									<%=noticias[i].resumo%>
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
+				<% }%>
 			<% }%>
 	    </div>
 		

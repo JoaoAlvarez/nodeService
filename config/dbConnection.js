@@ -1,7 +1,8 @@
 var mysql = require('mysql');
-        
-module.exports = function(){
+
+var connectToDataBase = function(){
     // os parametro sao pasasdos via json
+    console.log("Estabelecida conexão com a base de dados")
     return mysql.createConnection({
         host : 'localhost',
         user : 'root',
@@ -9,4 +10,8 @@ module.exports = function(){
         database : 'portal_noticias',
         port : '3306'
     });
+}
+module.exports = function(){
+    console.log("Carregado o modulo de conexão com o banco.")
+    return connectToDataBase
 }
